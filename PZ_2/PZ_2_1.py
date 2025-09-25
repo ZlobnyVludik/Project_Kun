@@ -10,5 +10,3 @@ file_size_kbytes = file_size_bytes // 1024
 
 # Результат
 print(f"Размер файла: {file_size_kbytes} КБ")
-
-# Конец
