@@ -2,12 +2,19 @@
 # найти количество полных килобайтов, которые занимает данный файл
 # (1 килобайт = 1024 байта).
 
-# Узнаем размер файла
-file_size_bytes = int(input("Введите размер файла в байтах: "))
+try:
+    # Узнаем размер
+    file_size_bytes = int(input("Введите размер файла в байтах: "))
+    # Проверяем что размер не отрицательный
+    if file_size_bytes < 0:
+        print("Ошибка: Нужно положительное число.")
+    else:
+        # Вычисляем
+        file_size_kbytes = file_size_bytes // 1024
+        # Результат
+        print(f"Размер файла: {file_size_kbytes} КБ")
 
-# Вычисляем
-file_size_kbytes = file_size_bytes // 1024
-
-# Результат
-print(f"Размер файла: {file_size_kbytes} КБ")
-
+except ValueError:
+    print("Ошибка: Нужно целое число.")
+except Exception as e:
+    print(f"Непредвиденная ошибка: {e}")
