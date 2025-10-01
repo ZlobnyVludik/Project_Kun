@@ -9,12 +9,9 @@ try:
     # Проверка условия
     if A >= B:
         raise ValueError("A должно быть меньше B.")
-
-    # Вычисляем
-    total = 0
-    for i in range(A, B + 1):
-        total += i ** 2
-
+    else:
+        # Вычисляем
+        total = sum(i*i for i in range(A, B+1))
         # Ответ
         print(f"Сумма квадратов: {total}")
 
