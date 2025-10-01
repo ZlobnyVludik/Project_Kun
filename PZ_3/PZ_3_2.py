@@ -6,44 +6,30 @@
 
 try:
     # Ввод цифры
-    unit_number = int(input("Введите номер единицы длины (1-5): "))
+    unit_number = int(input("Введите номер единицы длины: "))
 
-    # Проверка
+    # Провера от 1 до 5
     if unit_number < 1 or unit_number > 5:
-        raise ValueError("От 1 до 5 нужно.")
+        raise ValueError("От 1 до 5 цифры.")
 
-    # Длина
-    length = float(input("Введите длину отрезка: "))
+    # Ввод длины
+    length = int(input("Введите длину: "))
 
-    # Проверка положительного числа
+    # Проврка на отрицательные значения
     if length < 0:
-        raise ValueError("Только положительные числа.")
+        raise ValueError("Без отрицательных значений нужно.")
 
-    # Конвертирую в метры
-    if unit_number == 1:
-        result = length / 10
-        unit_name = "ДМ"
-    elif unit_number == 2:
-        result = length * 1000
-        unit_name = "КМ"
-    elif unit_number == 3:
-        result = length
-        unit_name = "М"
-    elif unit_number == 4:
-        result = length / 1000
-        unit_name = "ММ"
-    elif unit_number == 5:
-        result = length / 100
-        unit_name = "СМ"
+    # Определение коэффциента
+    factor = 0.1 if unit_number == 1 else \
+             1000 if unit_number == 2 else \
+             1 if unit_number == 3 else \
+             0.001 if unit_number == 4 else \
+             0.01 if unit_number == 5 else None
 
-    # Вывод результата
-    print(f"Длина отрезка в метрах равна {result:.2f} метрам")
+    # Считаем
+    result = length * factor
+    print(f"Длина отрезка в метрах: {result}")
 
-# Ошибки
+# Проверка на ошибку
 except ValueError as e:
-    if "Что-то не так." in str(e):
-        print("Ошибка: Введите нормальное число.")
-    else:
-        print(f"Ошибка: {e}")
-except Exception as e:
     print(f"Ошибка: {e}")
