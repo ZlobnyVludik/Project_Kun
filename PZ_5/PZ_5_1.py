@@ -16,6 +16,7 @@ def print_stars(m):
     except Exception as e:
         print(f"Произошла непредвиденная ошибка: {e}")
 
+
 def main():
     # Основная функция программы
     try:
@@ -29,5 +30,6 @@ def main():
         print("\nПрограмма прервана пользователем")
     except Exception as e:
         print(f"Произошла ошибка: {e}")
+
 
 main()
