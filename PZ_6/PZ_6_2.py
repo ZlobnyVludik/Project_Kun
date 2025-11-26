@@ -1,9 +1,10 @@
+
 # Дан список размера N. Найти кол-во участков, на которых его элементы монотонно возрастают.
 
 def incresing_numbers():
     while True:
         try:
-            # Получаем значения
+            # Получаем размер списка
             n = int(input("Введите размер списка: "))
             if n <= 0:
                 print("Только положительные.")
@@ -12,15 +13,16 @@ def incresing_numbers():
         except ValueError:
             print("Целые числа.")
 
-    # Складываем сюда элементы
+    # Складываем сюда полученные дальше значения
     numbers = []
-    print(f"\nВведите {n} чисел: ")
+    
+    print(f"\nВведите {n} значений: ")
 
-    # Вводим элементы
+    # Вводим числа
     for i in range(n):
         while True:
             try:
-                value = int(input(f"Элемент {i}: "))
+                value = int(input(f"Элемент {i+1}: "))
                 numbers.append(value)
                 break
             except ValueError:
