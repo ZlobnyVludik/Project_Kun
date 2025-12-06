@@ -22,7 +22,7 @@ def incresing_numbers():
     for i in range(n):
         while True:
             try:
-                value = int(input(f"Элемент {i+1}: "))
+                value = int(input(f"Значение {i+1}: "))
                 numbers.append(value)
                 break
             except ValueError:
