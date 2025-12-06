@@ -18,10 +18,5 @@ def makestring():
         # Вывод результата
         print(f"Строка длины {N} из символов '{C}':")
         print(result)
-        
-    except ValueError as e:
-        print(f"Ошибка ввода данных: {e}")
-    except Exception as e:
-        print(f"Неизвестная ошибка: {e}")
 
 makestring()
