@@ -1,7 +1,7 @@
 
 # Дано целое число N (>0) и символ C. Вывести строку длины N, которая состоит из символов C.
 
-def make_string()
+def makestring():
     try:
         # Получаем число N
         N = int(input("Введите целое число N (>0): "))
@@ -18,13 +18,10 @@ def make_string()
         # Вывод результата
         print(f"Строка длины {N} из символов '{C}':")
         print(result)
-        return result
         
     except ValueError as e:
         print(f"Ошибка ввода данных: {e}")
-        return None
     except Exception as e:
         print(f"Неизвестная ошибка: {e}")
-        return None
 
-make_string()
+makestring()
