@@ -28,7 +28,7 @@ def chet_chisla():
             count_numbs += 1
 
     # Выводим
-    print("\nЧётные цифры в порядке идекса: ")
+    print("\nЧётные цифры в порядке индекса: ")
     for num in cel_numbers:
         print(num)
     print(f"\nКол-во чётных чисел: {count_numbs}")
