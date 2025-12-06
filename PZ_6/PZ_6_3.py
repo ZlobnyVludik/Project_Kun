@@ -2,32 +2,20 @@
 # Дан список размера N. Заменить каждый элемент списка на среднее арефметическое
 # этого элемента и его соседей.
 
+import random
+
+
 def change_numbers():
-    while True:
-        try:
-            # Вводим размер списка
-            n = int(input("Введите размер списка: "))
-            if n <= 0:
-                print("Только положительные.")
-                continue
-            break
-        except ValueError:
-            print("Целые числа.")
+
+    # Вводим размер списка
+    n = random.randint(3, 20)
+    print(f"Размер списка: {n}")
             
     # Складываем сюда полученные дальше значения
-    numbers = []
+    numbers = [random.randint(-50, 50) for _ in range(10)]
     
-    print(f"\nВведите {n} целых чисел: ")
-    
-    # Получаем числа
-    for i in range(n):
-        while True:
-            try:
-                value = int(input(f"Номер {i + 1}: "))
-                numbers.append(value)
-                break
-            except ValueError:
-                print("Целые числа!")
+    print("Сгенерированный список: ")
+    print(numbers)
                 
     # Список для измененных чисел
     new_numbers = []

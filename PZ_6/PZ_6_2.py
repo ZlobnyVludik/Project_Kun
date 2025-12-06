@@ -1,32 +1,18 @@
 
 # Дан список размера N. Найти кол-во участков, на которых его элементы монотонно возрастают.
 
+import random
+
+
 def incresing_numbers():
-    while True:
-        try:
-            # Получаем размер списка
-            n = int(input("Введите размер списка: "))
-            if n <= 0:
-                print("Только положительные.")
-                continue
-            break
-        except ValueError:
-            print("Целые числа.")
+    # Получаем размер списка
+    n = random.randint(2, 20)
+    print(f"Размер списка: {n}")
 
     # Складываем сюда полученные дальше значения
-    numbers = []
-    
-    print(f"\nВведите {n} значений: ")
-
-    # Вводим числа
-    for i in range(n):
-        while True:
-            try:
-                value = int(input(f"Значение {i+1}: "))
-                numbers.append(value)
-                break
-            except ValueError:
-                print("Целые числа!!!")
+    numbers = [random.randint(-50, 50) for _ in range(n)]
+    print("\nСгенерированный список: ")
+    print(numbers)
 
     # Считаем кол-во участков
     count_segments = 0

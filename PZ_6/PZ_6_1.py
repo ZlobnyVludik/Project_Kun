@@ -1,21 +1,14 @@
+
 # Дан целочисленный список размера 10. Вывести все содержащиеся в данном списе
 # четные числа в порядке убывания их индексов, а также их количество K.
+
+import random
+
 
 def chet_chisla():
     
     # Создаем список
-    numbers = []
-    print("Введите 10 чисел: ")
-
-    # Получаем значения
-    for i in range(10):
-        while True:
-            try:
-                value = int(input(""))
-                numbers.append(value)
-                break
-            except ValueError:
-                print("Нужны целые числа.")
+    numbers = [random.randint(-100, 100) for _ in range(10)]
 
     # Сохраняем чётные числа
     cel_numbers = []
