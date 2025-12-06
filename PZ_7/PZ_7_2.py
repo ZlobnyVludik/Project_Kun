@@ -2,17 +2,20 @@
 # Дана строка-предложение с избыточными пробелами между словами.
 # Преобразовать ее так, чтобы между словами был ровно один пробел.
 
-def probel(sentence):
+def normalize_spaces():
     try:
-        # Проверяем, чтобы кд был строкой
-        if not isinstance(sentence, str):
-            raise ValueError("Только строка.")
+        # Получаем предложение
+        text = input("Введите строку с лишними пробелами: ").strip()
+        if not text:
+            raise ValueError("Пустая строка.")
+
         # Исправляем пробелы
-        return " ".join(sentence.split())
-    except Exception:
-        return "Ошибка!"
-        
-# Вывод
-input_sentence = input("Введите предложение с лишними пробелами: ")
-result = probel(input_sentence)
-print(result)
+        normalized = " ".join(text.split())
+
+        # Выводим результат
+        print("Результат:", normalized)
+
+    except ValueError as e:
+        print("Ошибка:", {e})
+
+normalize_spaces()
