@@ -18,7 +18,6 @@ def make_string()
         # Вывод результата
         print(f"Строка длины {N} из символов '{C}':")
         print(result)
-        
         return result
         
     except ValueError as e:
