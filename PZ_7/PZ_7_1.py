@@ -19,4 +19,5 @@ def create_string():
     except ValueError as e:
         print("Ошибка:", {e})
 
+
 create_string()

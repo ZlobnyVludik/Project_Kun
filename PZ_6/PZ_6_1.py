@@ -33,4 +33,5 @@ def chet_chisla():
         print(num)
     print(f"\nКол-во чётных чисел: {count_numbs}")
 
+
 chet_chisla()

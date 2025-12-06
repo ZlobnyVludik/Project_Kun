@@ -44,4 +44,5 @@ def incresing_numbers():
     # Вывод
     print(f"Кол-во участков: {count_segments}")
 
+
 incresing_numbers()

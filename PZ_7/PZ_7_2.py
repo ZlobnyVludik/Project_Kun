@@ -18,4 +18,5 @@ def normalize_spaces():
     except ValueError as e:
         print("Ошибка:", {e})
 
+
 normalize_spaces()

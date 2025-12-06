@@ -49,5 +49,6 @@ def change_numbers():
     print("\nИзмененные числа: ")
     for i in range(n):
         print(f"Номер {i + 1}: {new_numbers[i]}")
-        
+
+
 change_numbers()
