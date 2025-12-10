@@ -25,13 +25,6 @@ def average_numb(values):
 
     return result
 
-
-# Делаем, чтобы выводилось столбиком
-def colonki(values):
-    for x in values:
-        print(x)
-
-
 def vivod():
     # Случайный размер списка
     n = random.randint(3, 20)
@@ -45,10 +38,12 @@ def vivod():
     # Выводим результат
     print("\nРазмер списка:", n)
     print("\nОригинальный список:")
-    colonki(values)
+    for values in average_numb(values):
+        print(values)
 
     print("\nИзменённый список:")
-    colonki(averaged)
+    for averaged in average_numb(averaged):
+        print(averaged)
 
 
 vivod()
