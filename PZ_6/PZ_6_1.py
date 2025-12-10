@@ -21,6 +21,7 @@ def chet_chisla():
             count_numbs += 1
 
     # Выводим
+    print(f"\nОригинальный список: {numbers}")
     print("\nЧётные цифры в порядке индекса: ")
     for num in cel_numbers:
         print(num)
