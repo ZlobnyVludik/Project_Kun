@@ -7,7 +7,7 @@ import random
 def incresing_numbers():
     # Получаем размер списка
     n = random.randint(2, 20)
-    print(f"Размер списка: {n}")
+    print(f"\nРазмер списка: {n}")
 
     # Складываем сюда полученные дальше значения
     numbers = [random.randint(-50, 50) for _ in range(n)]
@@ -28,7 +28,7 @@ def incresing_numbers():
             in_segment = False
 
     # Вывод
-    print(f"Кол-во участков: {count_segments}")
+    print(f"\nКол-во участков: {count_segments}")
 
 
 incresing_numbers()
