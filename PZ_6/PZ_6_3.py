@@ -5,38 +5,43 @@
 import random
 
 
-def change_numbers():
+def replace_with_neighbor_average(values):
+    """Создать новый список, где каждый элемент заменён средним
+    арифметическим самого элемента и его соседей.
+    """
+    n = len(values)
+    if n == 0:
+        return []
+    if n == 1:
+        return [float(values[0])]
 
-    # Вводим размер списка
-    n = random.randint(3, 20)
-    print(f"Размер списка: {n}")
-            
-    # Складываем сюда полученные дальше значения
-    numbers = [random.randint(-50, 50) for _ in range(10)]
-    
-    print("Сгенерированный список: ")
-    print(numbers)
-                
-    # Список для измененных чисел
-    new_numbers = []
-    
-    # Изменяем числа
-    for i in range(n):
-        if i == 0:
-            average = (numbers[i] + numbers[i + 1]) / 2
-            
-        elif i == n - 1:
-            average = (numbers[i] + numbers[i - 1]) / 2
-            
-        else:
-            average = (numbers[i - 1] + numbers[i] + numbers[i + 1]) / 3
-            
-        new_numbers.append(average)
-    
-    # Вывод
-    print("\nИзмененные числа: ")
-    for i in range(n):
-        print(f"Номер {i + 1}: {new_numbers[i]}")
+    result = [0.0] * n
+
+    # Первый элемент
+    result[0] = (values[0] + values[1]) / 2.0
+
+    # Средние элементы
+    for i in range(1, n - 1):
+        result[i] = (values[i - 1] + values[i] + values[i + 1]) / 3.0
+
+    # Последний элемент
+    result[-1] = (values[-2] + values[-1]) / 2.0
+
+    return result
 
 
-change_numbers()
+def main():
+    # Случайный размер списка N
+    n = random.randint(5, 15)
+
+    # Генерация случайного списка
+    values = [random.randint(0, 20) for _ in range(n)]
+
+    print("Размер списка N:", n)
+    print("Оригинальный список:", values)
+
+    averaged = replace_with_neighbor_average(values)
+    print("Изменённый список:", averaged)
+
+
+main()
