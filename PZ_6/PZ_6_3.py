@@ -32,7 +32,7 @@ def colonki(values):
         print(x)
 
 
-def main():
+def vivod():
     # Случайный размер списка
     n = random.randint(3, 20)
 
@@ -51,5 +51,5 @@ def main():
     colonki(averaged)
 
 
-main()
+vivod()
 
