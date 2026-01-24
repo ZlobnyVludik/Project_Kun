@@ -9,6 +9,5 @@ sample_dict = {
 }
 
 #Вывод
-name = sample_dict["name"]
-salary = sample_dict["salary"]
-print(f"Имя: {name}\nЗарплата: {salary}")
+result = {key: sample_dict[key] for key in ["name", "salary"]}
+print(result)
