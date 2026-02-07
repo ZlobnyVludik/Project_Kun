@@ -12,21 +12,29 @@ magnit = {"Соль", "Молоко", "Сахар"}
 pyatka = {"Мясо", "Молоко", "Сыр"}
 prkrst = {"Молоко", "Творог", "Сыр", "Сахар"}
 
-# Список
-stores_dict = {
-    "Магните": magnit,
-    "Пятерочке": pyatka,
-    "Перекрестке": prkrst
-}
-
 # Задание 1
-no_cheese = [stores for stores, stock in stores_dict.items() if "Сыр" not in stock]
-print("Сыра нет в", no_cheese)
+print("Магазины без сыра: ")
+if "Сыр" not in magnit:
+    print("Магнит")
+if "Сыр" not in pytka:
+    print("Пятёрочка")
+if "Сыр" not in prkrst:
+    print("Перекрёсток")
 
 # Задание 2
-m_and_s = [stores for stores, stock in stores_dict.items() if {"Молоко", "Сахар"}.issubset(stock)]
-print("Молоко и сахар можно купить в", m_and_s)
+print("\nМагазины без молока и сахара: ")
+if {"Молоко", "Сахар"} <= magnit:
+    print("Магнит")
+if {"Молоко", "Сахар"} <= pytka:
+    print("Пятёрочка")
+if {"Молоко", "Сахар"} <= prkrst:
+    print("Перекрёсток")
 
 # Задание 3
-salty = [stores for stores, stock in stores_dict.items() if "Соль" in stock]
-print("Соль можно купить в", salty)
+print("Магазины с солью: ")
+if "Соль" in magnit:
+    print("магнит")
+if "Соль" in pytka:
+    print("Пятёрочка")
+if "Соль" in prkrst:
+    print("Перекрёсток")
