@@ -33,7 +33,7 @@ if {"Молоко", "Сахар"} <= prkrst:
 # Задание 3
 print("\nМагазины с солью: ")
 if "Соль" in magnit:
-    print("магнит")
+    print("Магнит")
 if "Соль" in pyatka:
     print("Пятёрочка")
 if "Соль" in prkrst:
