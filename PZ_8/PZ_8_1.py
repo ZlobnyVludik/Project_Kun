@@ -9,5 +9,5 @@ sample_dict = {
 }
 
 #Вывод
-result = {key: sample_dict[key] for key in ["name", "salary"]}
-print(result)
+print(sample_dict["name"])
+print(int(sample_dict["salary"]))
