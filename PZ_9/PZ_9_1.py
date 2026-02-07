@@ -16,7 +16,7 @@ prkrst = {"Молоко", "Творог", "Сыр", "Сахар"}
 print("Магазины без сыра: ")
 if "Сыр" not in magnit:
     print("Магнит")
-if "Сыр" not in pytka:
+if "Сыр" not in pyatka:
     print("Пятёрочка")
 if "Сыр" not in prkrst:
     print("Перекрёсток")
@@ -25,7 +25,7 @@ if "Сыр" not in prkrst:
 print("\nМагазины без молока и сахара: ")
 if {"Молоко", "Сахар"} <= magnit:
     print("Магнит")
-if {"Молоко", "Сахар"} <= pytka:
+if {"Молоко", "Сахар"} <= pyatka:
     print("Пятёрочка")
 if {"Молоко", "Сахар"} <= prkrst:
     print("Перекрёсток")
@@ -34,7 +34,7 @@ if {"Молоко", "Сахар"} <= prkrst:
 print("Магазины с солью: ")
 if "Соль" in magnit:
     print("магнит")
-if "Соль" in pytka:
+if "Соль" in pyatka:
     print("Пятёрочка")
 if "Соль" in prkrst:
     print("Перекрёсток")
