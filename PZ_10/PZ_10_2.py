@@ -3,9 +3,9 @@
 # который поместить текст в стихотворной форме предварительно удалив букву «с» из
 # текста.
 
+# Основной файл
 input_file = "text18-8.txt"
 
-# Текст
 poem_text = """И только небо засветилось,
 Все шумно вдруг зашевелилось,
 Сверкнул за строем строй.
@@ -21,16 +21,16 @@ with open(input_file, "w", encoding="utf-8") as f:
 with open(input_file, "r", encoding="utf-8") as f:
     text = f.read()
 
-# Выводим содержимое на экран
+# Выводим содержимое в консоль
 print("Содержимое файла:")
 print(text)
 
-# str.isalpha() учитывает все буквы (русские и латинские)
+# Считаем буквы
 letter_count = sum(1 for char in text if char.isalpha())
 
 print("\nКоличество букв в тексте:", letter_count)
 
-# Убираем букву 'с' и 'С'
+# Убираем букву С
 text_no_c = text.replace('с', '').replace('С', '')
 
 # Имя нового файла
@@ -39,5 +39,3 @@ output_file = "poem_no_c.txt"
 # Записываем результат
 with open(output_file, "w", encoding="utf-8") as f:
     f.write(text_no_c)
-
-print(f"\nНовый файл '{output_file}' создан, буква 'с' удалена.")
