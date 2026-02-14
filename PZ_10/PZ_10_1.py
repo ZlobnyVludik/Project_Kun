@@ -7,36 +7,19 @@
 # Индекс последнего минимального элемента:
 # Сумма элементов больших 10 во второй половине: 
 
-# ---------- 1. Создаем исходный файл ----------
-numbers = [12, -5, 7, -5, 20, 3, 15, -2, 30, 1]
+data = [12, -5, 7, -5, 20, 3, 15, -2, 30, 1]
 
-with open("./input.txt", "w") as f:
-    for n in numbers:
-        f.write(str(n) + " ")
-
-# ---------- 2. Читаем числа ----------
-with open("./input.txt", "r") as f:
-    data = list(map(int, f.read().split()))
-
-# ---------- 3. Обработка ----------
 count = len(data)
-
 min_value = min(data)
-
-# индекс последнего минимального элемента
 last_min_index = max(i for i, x in enumerate(data) if x == min_value)
 
-# вторая половина
 second_half = data[count//2:]
-
-# сумма элементов > 10 во второй половине
 sum_gt_10 = sum(x for x in second_half if x > 10)
 
-# ---------- 4. Записываем результат ----------
-with open("./output.txt", "w") as f:
+with open("output.txt", "w") as f:
     f.write("Исходные данные: " + " ".join(map(str, data)) + "\n")
-    f.write("Количество элементов: " + str(count) + "\n")
-    f.write("Индекс последнего минимального элемента: " + str(last_min_index) + "\n")
-    f.write("Сумма элементов больших 10 во второй половине: " + str(sum_gt_10) + "\n")
+    f.write(f"Количество элементов: {count}\n")
+    f.write(f"Индекс последнего минимального элемента: {last_min_index}\n")
+    f.write(f"Сумма элементов больших 10 во второй половине: {sum_gt_10}\n")
 
-print("Готово. Проверь файлы input.txt и output.txt")
+print("Файл output.txt создан")
