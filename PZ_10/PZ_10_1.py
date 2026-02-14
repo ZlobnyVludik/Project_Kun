@@ -60,5 +60,9 @@ with open("output.txt", "w", encoding="utf-8") as f:
     f.write(f"Индекс последнего минимального элемента: {last_min_index}\n")
     f.write(f"Сумма элементов больших 10 во второй половине: {sum_gt_10}\n")
 
-print("Готово! Файлы input.txt и output.txt созданы.")
+print("\nИсходные данные:")
+print(*numbers)
 
+print("Количество элементов:", count)
+print("Индекс последнего минимального элемента:", last_min_index)
+print("Сумма элементов больших 10 во второй половине:", sum_gt_10)
