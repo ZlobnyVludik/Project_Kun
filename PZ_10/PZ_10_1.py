@@ -7,19 +7,3 @@
 # Индекс последнего минимального элемента:
 # Сумма элементов больших 10 во второй половине: 
 
-data = [12, -5, 7, -5, 20, 3, 15, -2, 30, 1]
-
-count = len(data)
-min_value = min(data)
-last_min_index = max(i for i, x in enumerate(data) if x == min_value)
-
-second_half = data[count//2:]
-sum_gt_10 = sum(x for x in second_half if x > 10)
-
-with open("output.txt", "w") as f:
-    f.write("Исходные данные: " + " ".join(map(str, data)) + "\n")
-    f.write(f"Количество элементов: {count}\n")
-    f.write(f"Индекс последнего минимального элемента: {last_min_index}\n")
-    f.write(f"Сумма элементов больших 10 во второй половине: {sum_gt_10}\n")
-
-print("Файл output.txt создан")
