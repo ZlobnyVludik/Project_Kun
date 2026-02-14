@@ -9,7 +9,7 @@
 
 import random
 
-# Сгенерируем случайную последовательность целых чисел
+# Сгенерируем случайные числа
 numbers = [random.randint(-50, 50) for _ in range(20)]
 
 # Записываем числа в файл через пробел
@@ -36,7 +36,7 @@ last_min_index = len(numbers) - 1 - numbers[::-1].index(min_value)
 # Вторая половина последовательности
 second_half = numbers[count // 2:]
 
-# Сумма элементов > 10 во второй половине
+# Сумма элементов больше 10 во второй половине
 sum_gt_10 = sum(x for x in second_half if x > 10)
 
 with open("output.txt", "w", encoding="utf-8") as f:
