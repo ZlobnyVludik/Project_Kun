@@ -7,41 +7,38 @@
 # Индекс последнего минимального элемента:
 # Сумма элементов больших 10 во второй половине: 
 
-# ---------- 1. Создание исходного файла ----------
-# Можно задать любые числа
-numbers = [5, -3, 12, 7, -3, 25, 4, 18, -1, 30, 2]
+# ---------- 1. Создаем исходный файл ----------
+numbers = [12, -5, 7, -5, 20, 3, 15, -2, 30, 1]
 
 with open("input.txt", "w", encoding="utf-8") as f:
     f.write(" ".join(map(str, numbers)))
 
 
-# ---------- 2. Чтение данных ----------
+# ---------- 2. Читаем числа из файла ----------
 with open("input.txt", "r", encoding="utf-8") as f:
-    nums = list(map(int, f.read().split()))
+    data = list(map(int, f.read().split()))
 
 
 # ---------- 3. Обработка ----------
-# количество элементов
-count = len(nums)
+count = len(data)
 
 # индекс последнего минимального элемента
-min_value = min(nums)
-# ищем с конца
-last_min_index = len(nums) - 1 - nums[::-1].index(min_value)
+min_value = min(data)
+last_min_index = len(data) - 1 - data[::-1].index(min_value)
+
+# вторая половина списка
+second_half = data[count//2:]
 
 # сумма элементов > 10 во второй половине
-half = len(nums) // 2
-second_half = nums[half:]
-sum_gt10 = sum(x for x in second_half if x > 10)
+sum_gt_10 = sum(x for x in second_half if x > 10)
 
 
-# ---------- 4. Запись результата ----------
+# ---------- 4. Записываем результат ----------
 with open("output.txt", "w", encoding="utf-8") as f:
-    f.write("Исходные данные:\n")
-    f.write(" ".join(map(str, nums)) + "\n\n")
+    f.write("Исходные данные: " + " ".join(map(str, data)) + "\n")
     f.write(f"Количество элементов: {count}\n")
     f.write(f"Индекс последнего минимального элемента: {last_min_index}\n")
-    f.write(f"Сумма элементов больших 10 во второй половине: {sum_gt10}\n")
+    f.write(f"Сумма элементов больших 10 во второй половине: {sum_gt_10}\n")
 
-print("Готово. Проверьте файлы input.txt и output.txt")
 
+print("Готово! Файлы input.txt и output.txt созданы.")
