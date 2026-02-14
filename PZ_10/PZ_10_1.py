@@ -12,16 +12,16 @@ import random
 # Сгенерируем случайную последовательность целых чисел
 numbers = [random.randint(-50, 50) for _ in range(20)]
 
-# Записываем числа в файл (через пробел)
+# Записываем числа в файл через пробел
 with open("input.txt", "w", encoding="utf-8") as f:
     for num in numbers:
         f.write(str(num) + " ")
 
 with open("input.txt", "r", encoding="utf-8") as f:
-    # split() разбивает строку по пробелам
+    # Разбиваем строку по пробелам
     data = f.read().split()
 
-# преобразуем строки в целые числа
+# Преобразуем строки в целые числа
 numbers = [int(x) for x in data]
 
 # Количество элементов
@@ -31,7 +31,6 @@ count = len(numbers)
 min_value = min(numbers)
 
 # Индекс последнего минимального элемента
-# ищем с конца списка
 last_min_index = len(numbers) - 1 - numbers[::-1].index(min_value)
 
 # Вторая половина последовательности
@@ -42,8 +41,7 @@ sum_gt_10 = sum(x for x in second_half if x > 10)
 
 with open("output.txt", "w", encoding="utf-8") as f:
     f.write("Исходные данные:\n")
-    f.write(" ".join(map(str, numbers)) + "\n\n")
-
+    f.write(" ".join(map(str, numbers)) + "\n")
     f.write(f"Количество элементов: {count}\n")
     f.write(f"Индекс последнего минимального элемента: {last_min_index}\n")
     f.write(f"Сумма элементов больших 10 во второй половине: {sum_gt_10}\n")
