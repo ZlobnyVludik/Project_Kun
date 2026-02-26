@@ -15,10 +15,10 @@ poem_text = """И только небо засветилось,
 Он спит в земле сырой."""
 
 # Записываем текст в файл
-with open(input_file, "w", encoding="utf-8") as f:
+open(input_file, "w", encoding="utf-8") as f:
     f.write(poem_text)
 
-with open(input_file, "r", encoding="utf-8") as f:
+open(input_file, "r", encoding="utf-8") as f:
     text = f.read()
 
 # Выводим содержимое в консоль
@@ -37,5 +37,5 @@ text_no_c = text.replace('с', '').replace('С', '')
 output_file = "poem_no_c.txt"
 
 # Записываем результат
-with open(output_file, "w", encoding="utf-8") as f:
+open(output_file, "w", encoding="utf-8") as f:
     f.write(text_no_c)
