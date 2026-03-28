@@ -6,10 +6,12 @@ import random
 
 n = int(input("Введите кол-во элементов: "))
 
+# Генерируем числа
 nums = [random.randint(-20, 20) for _ in range(n)]
 
 print("Список чисел:", nums)
 
+# Подсчитываем пары
 count = sum(
     1 for a, b in zip(nums, nums[1:])
     if (a * b) % 3 == 0
