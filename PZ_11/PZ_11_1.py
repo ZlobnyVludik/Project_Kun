@@ -10,10 +10,9 @@ nums = [random.randint(-20, 20) for _ in range(n)]
 
 print("Список чисел:", nums)
 
-count = 0
-
-for i in range(len(nums)-1):
-    if (nums[i] * nums[i+1]) % 3 == 0:
-        count += 1
+count = sum(
+    1 for a, b in zip(nums, nums[1:])
+    if (a * b) % 3 == 0
+)
 
 print("Кол-во пар:", count)
