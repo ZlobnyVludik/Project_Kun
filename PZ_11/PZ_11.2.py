@@ -13,4 +13,3 @@ up = to_upper(small_text)
 # Помещаем и выводим
 big_text = "".join(up)
 print(big_text)
-    
