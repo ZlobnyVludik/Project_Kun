@@ -17,6 +17,6 @@ matrix = [
 ]
 
 # Вывод результата
-print("Изменённая матрица:")
+print("\nИзменённая матрица:")
 for row in matrix:
     print(*row)
