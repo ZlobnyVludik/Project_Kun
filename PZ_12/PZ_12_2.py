@@ -11,6 +11,6 @@ matrix = [list(map(int, input(f"Строка {i + 1}: ").split())) for i in rang
 matrix[-1] = [0 for _ in range(m)]
 
 # Вывод результата
-print("Изменённая матрица:")
+print("\nИзменённая матрица:")
 for row in matrix:
     print(*row)
