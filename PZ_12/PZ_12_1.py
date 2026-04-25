@@ -1,22 +1,10 @@
 # В матрице элементы столбца N (N задать с клавиатуры) увеличить в 2 раза.
 
-# Ввод размеров матрицы
-n = int(input("Количество строк: "))
-m = int(input("Количество столбцов: "))
+matrix = [list(map(int, input().split())) for _ in range(int(input()))]
+N = int(input()) - 1
 
-# Ввод номера столбца N
-N = int(input("Номер столбца N: "))
-
-# Ввод матрицы
-matrix = [list(map(int, input(f"Строка {i + 1}: ").split())) for i in range(n)]
-
-# Увеличиваем элементы столбца N в 2 раза
-matrix = [
-    [elem * 2 if j == N - 1 else elem for j, elem in enumerate(row)]
-    for row in matrix
-]
-
-# Вывод результата
-print("\nИзменённая матрица:")
 for row in matrix:
-    print(*row)
+    row[N] *= 2
+
+for row in matrix:
+    print(row)
