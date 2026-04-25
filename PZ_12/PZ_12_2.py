@@ -1,16 +1,11 @@
 # В матрице элементы последней строки заменить на 0.
 
-# Ввод размеров матрицы
-n = int(input("Количество строк: "))
-m = int(input("Количество столбцов: "))
+rows = int(input("Введите кол-во строк: "))
 
-# Ввод матрицы
-matrix = [list(map(int, input(f"Строка {i + 1}: ").split())) for i in range(n)]
+matrix = [list(map(int, input("Введите строку: ").split())) for _ in range(rows)]
+    
+matrix[-1] = [0 for _ in matrix[-1]]
 
-# Последнюю строку заменяем на 0
-matrix[-1] = [0 for _ in range(m)]
-
-# Вывод результата
-print("\nИзменённая матрица:")
+print("Результат: \n")
 for row in matrix:
     print(*row)
