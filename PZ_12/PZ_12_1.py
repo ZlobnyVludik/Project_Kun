@@ -2,10 +2,7 @@
 
 rows = int(input("Введите кол-во строк: "))
 
-matrix = []
-for i in range(rows):
-    row = list(map(int, input("Введите элементы строки (через пробел): ").split()))
-    matrix.append(row)
+matrix = [list(map(int, input("Введите строку: ").split())) for _ in range(rows)]
 
 N = int(input("Введите номер стобца: ")) - 1
 
@@ -16,4 +13,3 @@ for row in matrix:
 print("Результат: \n")
 for row in matrix:
     print(*row)
-    
