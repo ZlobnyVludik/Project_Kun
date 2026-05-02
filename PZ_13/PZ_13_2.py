@@ -81,8 +81,10 @@ text =  """
 p = re.compile (r"«.+?»", re.U)
 books = p.findall(text)
 
+unique = list(dict.fromkeys(books))
+
 print("Произведения: ")
-for m in books:
+for m in unique:
     print(m)
     
-print(f"\nКоличество: {len(books)}")
+print(f"\nКоличество: {len(unique)}")
