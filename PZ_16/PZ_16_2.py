@@ -32,8 +32,8 @@ class Cat(Animal):
         print(f"{self.name} мурлычет.")
 
 
-dog = Dog("Бобик", "Овчарка")
-cat = Cat("Мурка", "Рыжий")
+dog = Dog("Собака", "овчарка")
+cat = Cat("Кошка", "рыжий")
 
 dog.breathe()
 dog.eat()
@@ -44,5 +44,5 @@ cat.eat()
 dog.bark()
 cat.purr()
 
-print(f"Порода: {dog.breed}.")
-print(f"Окрас: {cat.color}.")
+print(f"Порода собаки - {dog.breed}.")
+print(f"Окрас кошки - {cat.color}.")
