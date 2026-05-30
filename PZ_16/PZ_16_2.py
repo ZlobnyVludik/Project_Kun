@@ -20,7 +20,7 @@ class Dog(Animal):
         self.breed = breed
 
     def bark(self):
-        print(f"{self.name} гавкает: Гав-гав!")
+        print(f"{self.name} Гавкает.")
 
 
 class Cat(Animal):
@@ -29,20 +29,17 @@ class Cat(Animal):
         self.color = color
 
     def purr(self):
-        print(f"{self.name} мурлычет: Мур-мур!")
+        print(f"{self.name} Мурлычет.")
 
 
-# Создание объектов
 dog = Dog("Бобик", "Овчарка")
 cat = Cat("Мурка", "Рыжий")
 
-# Методы базового класса
 dog.breathe()
 dog.eat()
 
 cat.breathe()
 cat.eat()
 
-# Уникальные методы
 dog.bark()
 cat.purr()
