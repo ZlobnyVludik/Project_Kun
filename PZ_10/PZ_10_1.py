@@ -7,41 +7,48 @@
 # Индекс последнего минимального элемента:
 # Сумма элементов больших 10 во второй половине: 
 
-import random
+from random import randint
 
-# Сгенерируем случайные числа
-numbers = [random.randint(-50, 50) for _ in range(20)]
+# Формирование исходного файла
+numbers = []
 
-# Записываем числа в файл через пробел
-open("input.txt", "w", encoding="utf-8") as f:
-    for num in numbers:
-        f.write(str(num) + " ")
+for i in range(15):
+    numbers.append(randint(-50, 50))
 
-open("input.txt", "r", encoding="utf-8") as f:
-    # Разбиваем строку по пробелам
-    data = f.read().split()
+file1 = open('data_8_1.txt', 'w', encoding='utf-8')
+file1.write(' '.join(map(str, numbers)))
+file1.close()
 
-# Преобразуем строки в целые числа
-numbers = [int(x) for x in data]
-
-# Количество элементов
-count = len(numbers)
-
-# Минимальное значение
-min_value = min(numbers)
+# Чтение данных из файла
+file1 = open('data_8_1.txt', 'r', encoding='utf-8')
+data = list(map(int, file1.read().split()))
+file1.close()
 
 # Индекс последнего минимального элемента
-last_min_index = len(numbers) - 1 - numbers[::-1].index(min_value)
+min_elem = min(data)
+last_min_index = 0
 
-# Вторая половина последовательности
-second_half = numbers[count // 2:]
+for i in range(len(data)):
+    if data[i] == min_elem:
+        last_min_index = i
 
-# Сумма элементов больше 10 во второй половине
-sum_gt_10 = sum(x for x in second_half if x > 10)
+# Сумма элементов > 10 во второй половине
+sum_gt_10 = 0
+second_half = data[len(data) // 2:]
 
-open("output.txt", "w", encoding="utf-8") as f:
-    f.write("Исходные данные:\n")
-    f.write(" ".join(map(str, numbers)) + "\n")
-    f.write(f"Количество элементов: {count}\n")
-    f.write(f"Индекс последнего минимального элемента: {last_min_index}\n")
-    f.write(f"Сумма элементов больших 10 во второй половине: {sum_gt_10}\n")
+for num in second_half:
+    if num > 10:
+        sum_gt_10 += num
+
+# Формирование итогового файла
+file2 = open('data_8_2.txt', 'w', encoding='utf-8')
+
+file2.write('Исходные данные:\n')
+file2.write(' '.join(map(str, data)))
+file2.write('\n')
+
+file2.write(f'Количество элементов: {len(data)}\n')
+file2.write(f'Индекс последнего минимального элемента: {last_min_index}\n')
+file2.write(f'Сумма элементов больше 10 во второй половине: {sum_gt_10}\n')
+
+file2.close()
