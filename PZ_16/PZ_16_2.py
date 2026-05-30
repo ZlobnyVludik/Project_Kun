@@ -1,7 +1,7 @@
 # Создание базового класса "Животное" и его наследование для создания классов
 # "Собака" и "Кошка". В классе "Животное" будут общие методы, такие как "дышать"
 # и "питаться", а классы-наследники будут иметь свои уникальные методы и свойства,
-# такие как "гавкать" и "мурлыкать". 
+# такие как "гавкать" и "мурлыкать".
 
 class Animal:
     def __init__(self, name):
@@ -20,7 +20,7 @@ class Dog(Animal):
         self.breed = breed
 
     def bark(self):
-        print(f"{self.name} Гавкает.")
+        print(f"{self.name} гавкает.")
 
 
 class Cat(Animal):
@@ -29,7 +29,7 @@ class Cat(Animal):
         self.color = color
 
     def purr(self):
-        print(f"{self.name} Мурлычет.")
+        print(f"{self.name} мурлычет.")
 
 
 dog = Dog("Бобик", "Овчарка")
@@ -43,3 +43,6 @@ cat.eat()
 
 dog.bark()
 cat.purr()
+
+print(f"Порода: {dog.breed}.")
+print(f"Окрас: {cat.color}.")
