@@ -11,7 +11,5 @@ class Human:
     def show_info(self):
         print(f"Имя: {self.name}, Возраст: {self.age}, Пол: {self.gender}")
 
-
-# Пример использования
 person = Human("Иван", 25, "мужской")
 person.show_info()
