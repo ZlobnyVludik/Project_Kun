@@ -7,48 +7,46 @@
 # Индекс последнего минимального элемента:
 # Сумма элементов больших 10 во второй половине: 
 
-from random import randint
+import random
 
-# Формирование исходного файла
-numbers = []
+# Формируем список случайных чисел
+numbers = [random.randint(-20, 30) for _ in range(15)]
 
-for i in range(15):
-    numbers.append(randint(-50, 50))
-
-file1 = open('data_8_1.txt', 'w', encoding='utf-8')
-file1.write(' '.join(map(str, numbers)))
+# Записываем исходные данные в файл
+file1 = open("data_8.txt", "w", encoding="utf-8")
+file1.write(" ".join(map(str, numbers)))
 file1.close()
 
-# Чтение данных из файла
-file1 = open('data_8_1.txt', 'r', encoding='utf-8')
+# Читаем данные из файла
+file1 = open("data_8.txt", "r", encoding="utf-8")
 data = list(map(int, file1.read().split()))
 file1.close()
 
+# Количество элементов
+count_elements = len(data)
+
 # Индекс последнего минимального элемента
-min_elem = min(data)
-last_min_index = 0
+min_element = min(data)
+last_min_index = len(data) - 1 - data[::-1].index(min_element)
 
-for i in range(len(data)):
-    if data[i] == min_elem:
-        last_min_index = i
-
-# Сумма элементов > 10 во второй половине
-sum_gt_10 = 0
+# Вторая половина списка
 second_half = data[len(data) // 2:]
 
+# Сумма элементов больше 10 во второй половине
+sum_more_than_10 = 0
 for num in second_half:
     if num > 10:
-        sum_gt_10 += num
+        sum_more_than_10 += num
 
-# Формирование итогового файла
-file2 = open('data_8_2.txt', 'w', encoding='utf-8')
+# Запись результата в новый файл
+file2 = open("result_8.txt", "w", encoding="utf-8")
 
-file2.write('Исходные данные:\n')
-file2.write(' '.join(map(str, data)))
-file2.write('\n')
-
-file2.write(f'Количество элементов: {len(data)}\n')
-file2.write(f'Индекс последнего минимального элемента: {last_min_index}\n')
-file2.write(f'Сумма элементов больше 10 во второй половине: {sum_gt_10}\n')
+file2.write("Исходные данные:\n")
+file2.write(" ".join(map(str, data)) + "\n")
+file2.write(f"Количество элементов: {count_elements}\n")
+file2.write(f"Индекс последнего минимального элемента: {last_min_index}\n")
+file2.write(f"Сумма элементов больших 10 во второй половине: {sum_more_than_10}\n")
 
 file2.close()
+
+print("Файл result_8.txt успешно создан.")
