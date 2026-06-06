@@ -3,39 +3,30 @@
 # который поместить текст в стихотворной форме предварительно удалив букву «с» из
 # текста.
 
-# Основной файл
-input_file = "text18-8.txt"
+# Вывод содержимого файла и подсчет букв
 
-poem_text = """И только небо засветилось,
-Все шумно вдруг зашевелилось,
-Сверкнул за строем строй.
-Полковник наш рожден был хватом:
-Слуга царю, отец солдатам…
-Да, жаль его: сражен булатом,
-Он спит в земле сырой."""
+count_letters = 0
 
-# Записываем текст в файл
-open(input_file, "w", encoding="utf-8") as f:
-    f.write(poem_text)
+file1 = open("text18-8.txt", "r", encoding="utf-8")
 
-open(input_file, "r", encoding="utf-8") as f:
-    text = f.read()
+for line in file1:
+    print(line, end="")
+    for symbol in line:
+        if symbol.isalpha():
+            count_letters += 1
 
-# Выводим содержимое в консоль
-print("Содержимое файла:")
-print(text)
+file1.close()
 
-# Считаем буквы
-letter_count = sum(1 for char in text if char.isalpha())
+print("\nКоличество букв:", count_letters)
 
-print("\nКоличество букв в тексте:", letter_count)
+# Создание нового файла без буквы "с"
 
-# Убираем букву С
-text_no_c = text.replace('с', '').replace('С', '')
+file1 = open("text18-8.txt", "r", encoding="utf-8")
+text = file1.read()
+file1.close()
 
-# Имя нового файла
-output_file = "poem_no_c.txt"
+text = text.replace("с", "").replace("С", "")
 
-# Записываем результат
-open(output_file, "w", encoding="utf-8") as f:
-    f.write(text_no_c)
+file2 = open("text18-8_new.txt", "w", encoding="utf-8")
+file2.write(text)
+file2.close()
