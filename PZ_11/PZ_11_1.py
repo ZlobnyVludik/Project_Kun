@@ -2,19 +2,14 @@
 # для которых произведение элементов делится на 3
 # (элементы пары в последовательности являются соседними).
 
-import random
+from random import randint
 
-n = int(input("Введите кол-во элементов: "))
+n = int(input('n = '))
 
-# Генерируем числа
-nums = [random.randint(-20, 20) for _ in range(n)]
+a = [randint(-20, 20) for _ in range(n)]
 
-print("Список чисел:", nums)
+pairs = list(zip(a, a[1:]))
+count = sum(1 for x, y in pairs if (x * y) % 3 == 0)
 
-# Подсчитываем пары
-count = sum(
-    1 for a, b in zip(nums, nums[1:])
-    if (a * b) % 3 == 0
-)
-
-print("Кол-во пар:", count)
+print('Последовательность:', a)
+print('Количество пар:', count)
