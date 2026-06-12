@@ -101,6 +101,9 @@ bottom_frame.pack_propagate(False)
 Button(bottom_frame, text="submit", bg="#4cae4c", fg="white", font="Arial 10 bold", bd=0, padx=10).pack(side=RIGHT, padx=(0, 5), pady=10)
 Button(bottom_frame, text="Cancel", bg="#d9534f", fg="white", font="Arial 10 bold", bd=0, padx=10).pack(side=RIGHT, padx=5, pady=10)
 
-root.mainloop()cancel_btn.pack(side=LEFT, padx=5)
+root.mainloop()
+cancel_btn = Button(bottom_frame, text="Cancel", bg="#e74c3c", fg="white",
+                    font=("Arial", 10, "bold"), bd=0, padx=10, pady=4)
+cancel_btn.pack(side=LEFT, padx=5)
 
 root.mainloop()
