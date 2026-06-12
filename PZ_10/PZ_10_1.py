@@ -11,32 +11,32 @@ import random
 
 n = int(input("Введите количество элементов: "))
 
-numbers = [random.randint(-30, 30) for _ in range(n)]
+numbers = [random.randint(-50, 50) for _ in range(n)]
 
-file1 = open('data_8.txt', 'w')
-file1.write(' '.join(map(str, numbers)))
-file1.close()
+f1 = open('data_8.txt', 'w')
+f1.write(' '.join(map(str, numbers)))
+f1.close()
 
-file1 = open('data_8.txt', 'r')
-data_str = file1.read()
-file1.close()
-numbers_list = list(map(int, data_str.split()))
+f1 = open('data_8.txt', 'r')
+content = f1.read()
+f1.close()
+nums = list(map(int, content.split()))
 
-total_count = len(numbers_list)
+min_val = min(nums)
+last_min_index = 0
+for i in range(len(nums) - 1, -1, -1):
+    if nums[i] == min_val:
+        last_min_index = i
+        break
 
-product = 1
-for num in numbers_list:
-    product *= num
+half_start = len(nums) // 2
+second_half = nums[half_start:]
+sum_gt_10 = sum(x for x in second_half if x > 10)
 
-pair_count = 0
-for i in range(total_count - 1):
-    if (numbers_list[i] * numbers_list[i + 1]) % 3 == 0:
-        pair_count += 1
-
-file2 = open('result_8.txt', 'w')
-file2.write('Исходные данные:\n')
-file2.write(' '.join(map(str, numbers_list)) + '\n')
-file2.write('Количество элементов: ' + str(total_count) + '\n')
-file2.write('Произведение элементов: ' + str(product) + '\n')
-file2.write('Количество пар, для которых произведение элементов делится на 3: ' + str(pair_count) + '\n')
-file2.close()
+f2 = open('result_8.txt', 'w')
+f2.write("Исходные данные:\n")
+f2.write(' '.join(map(str, nums)) + '\n')
+f2.write("Количество элементов: " + str(len(nums)) + '\n')
+f2.write("Индекс последнего минимального элемента: " + str(last_min_index) + '\n')
+f2.write("Сумма элементов больших 10 во второй половине: " + str(sum_gt_10) + '\n')
+f2.close()
