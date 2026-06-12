@@ -9,44 +9,34 @@
 
 import random
 
-# Формируем список случайных чисел
-numbers = [random.randint(-20, 30) for _ in range(15)]
+n = int(input("Введите количество элементов: "))
 
-# Записываем исходные данные в файл
-file1 = open("data_8.txt", "w", encoding="utf-8")
-file1.write(" ".join(map(str, numbers)))
+numbers = [random.randint(-30, 30) for _ in range(n)]
+
+file1 = open('data_8.txt', 'w')
+file1.write(' '.join(map(str, numbers)))
 file1.close()
 
-# Читаем данные из файла
-file1 = open("data_8.txt", "r", encoding="utf-8")
-data = list(map(int, file1.read().split()))
+file1 = open('data_8.txt', 'r')
+data_str = file1.read()
 file1.close()
+numbers_list = list(map(int, data_str.split()))
 
-# Количество элементов
-count_elements = len(data)
+total_count = len(numbers_list)
 
-# Индекс последнего минимального элемента
-min_element = min(data)
-last_min_index = len(data) - 1 - data[::-1].index(min_element)
+product = 1
+for num in numbers_list:
+    product *= num
 
-# Вторая половина списка
-second_half = data[len(data) // 2:]
+pair_count = 0
+for i in range(total_count - 1):
+    if (numbers_list[i] * numbers_list[i + 1]) % 3 == 0:
+        pair_count += 1
 
-# Сумма элементов больше 10 во второй половине
-sum_more_than_10 = 0
-for num in second_half:
-    if num > 10:
-        sum_more_than_10 += num
-
-# Запись результата в новый файл
-file2 = open("result_8.txt", "w", encoding="utf-8")
-
-file2.write("Исходные данные:\n")
-file2.write(" ".join(map(str, data)) + "\n")
-file2.write(f"Количество элементов: {count_elements}\n")
-file2.write(f"Индекс последнего минимального элемента: {last_min_index}\n")
-file2.write(f"Сумма элементов больших 10 во второй половине: {sum_more_than_10}\n")
-
+file2 = open('result_8.txt', 'w')
+file2.write('Исходные данные:\n')
+file2.write(' '.join(map(str, numbers_list)) + '\n')
+file2.write('Количество элементов: ' + str(total_count) + '\n')
+file2.write('Произведение элементов: ' + str(product) + '\n')
+file2.write('Количество пар, для которых произведение элементов делится на 3: ' + str(pair_count) + '\n')
 file2.close()
-
-print("Файл result_8.txt успешно создан.")
