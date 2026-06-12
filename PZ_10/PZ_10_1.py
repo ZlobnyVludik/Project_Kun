@@ -11,7 +11,7 @@ import random
 
 n = int(input("Введите количество элементов: "))
 
-numbers = [random.randint(-10, 10) for _ in range(n)]
+numbers = [random.randint(-10, 25) for _ in range(n)]
 
 f1 = open('data_8.txt', 'w')
 f1.write(' '.join(map(str, numbers)))
