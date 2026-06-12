@@ -3,11 +3,9 @@
 # который поместить текст в стихотворной форме предварительно удалив букву «с» из
 # текста.
 
-# Вывод содержимого файла и подсчет букв
-
 count_letters = 0
 
-file1 = open("text18-8.txt", "r", encoding="utf-8")
+file1 = open("text18-8.txt", "r", encoding="utf-16")
 
 for line in file1:
     print(line, end="")
@@ -21,12 +19,12 @@ print("\nКоличество букв:", count_letters)
 
 # Создание нового файла без буквы "с"
 
-file1 = open("text18-8.txt", "r", encoding="utf-8")
+file1 = open("text18-8.txt", "r", encoding="utf-16")
 text = file1.read()
 file1.close()
 
 text = text.replace("с", "").replace("С", "")
 
-file2 = open("text18-8_new.txt", "w", encoding="utf-8")
+file2 = open("text18-8_new.txt", "w", encoding="utf-16")
 file2.write(text)
 file2.close()
