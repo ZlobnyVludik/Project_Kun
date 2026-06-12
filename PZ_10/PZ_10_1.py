@@ -31,12 +31,12 @@ for i in range(len(nums) - 1, -1, -1):
 
 half_start = len(nums) // 2
 second_half = nums[half_start:]
-sum_gt_10 = sum(x for x in second_half if x > 10)
+sum_10 = sum(x for x in second_half if x > 10)
 
 f2 = open('result_8.txt', 'w')
 f2.write("Исходные данные:\n")
 f2.write(' '.join(map(str, nums)) + '\n')
 f2.write("Количество элементов: " + str(len(nums)) + '\n')
 f2.write("Индекс последнего минимального элемента: " + str(last_min_index) + '\n')
-f2.write("Сумма элементов больших 10 во второй половине: " + str(sum_gt_10) + '\n')
+f2.write("Сумма элементов больших 10 во второй половине: " + str(sum_10) + '\n')
 f2.close()
