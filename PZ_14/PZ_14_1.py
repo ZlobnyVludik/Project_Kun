@@ -19,9 +19,11 @@ main_frame.pack(fill=BOTH, expand=True, padx=20, pady=10)
 label_cfg = {"bg": "#1e2233", "fg": "#e6a817", "font": "Arial 10", "anchor": "e", "width": 15}
 entry_cfg = {"font": "Arial 10", "bd": 1, "relief": SOLID}
 
+
 def add_row(parent, row, label_text, widget):
     Label(parent, text=label_text, **label_cfg).grid(row=row, column=0, padx=(0, 10), pady=6, sticky=E)
     widget.grid(row=row, column=1, pady=6, sticky=EW)
+
 
 main_frame.columnconfigure(1, weight=1)
 
@@ -42,8 +44,8 @@ Label(main_frame, text="Date of Birth", **label_cfg).grid(row=3, column=0, padx=
 dob_frame = Frame(main_frame, bg="#1e2233")
 dob_frame.grid(row=3, column=1, pady=6, sticky=W)
 
-months = ["January","February","March","April","May","June",
-          "July","August","September","October","November","December"]
+months = ["January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"]
 month_var = StringVar(value="May")
 month_cb = ttk.Combobox(dob_frame, textvariable=month_var, values=months, width=10, state="readonly")
 month_cb.pack(side=LEFT, padx=(0, 4))
@@ -64,8 +66,10 @@ gender_frame = Frame(main_frame, bg="#1e2233")
 gender_frame.grid(row=4, column=1, pady=6, sticky=W)
 
 gender_var = StringVar(value="Male")
-Radiobutton(gender_frame, text="Male", variable=gender_var, value="Male", bg="#1e2233", fg="white", selectcolor="#1e2233", font="Arial 10").pack(side=LEFT)
-Radiobutton(gender_frame, text="Female", variable=gender_var, value="Female", bg="#1e2233", fg="white", selectcolor="#1e2233", font="Arial 10").pack(side=LEFT)
+Radiobutton(gender_frame, text="Male", variable=gender_var, value="Male", bg="#1e2233", fg="white",
+            selectcolor="#1e2233", font="Arial 10").pack(side=LEFT)
+Radiobutton(gender_frame, text="Female", variable=gender_var, value="Female", bg="#1e2233", fg="white",
+            selectcolor="#1e2233", font="Arial 10").pack(side=LEFT)
 
 Label(main_frame, text="Country", **label_cfg).grid(row=5, column=0, padx=(0, 10), pady=6, sticky=E)
 
@@ -92,14 +96,17 @@ agree_frame = Frame(main_frame, bg="#1e2233")
 agree_frame.grid(row=10, column=0, columnspan=2, pady=6)
 
 agree_var = IntVar()
-Checkbutton(agree_frame, text="I agree to the Terms of Use", variable=agree_var, bg="#1e2233", fg="white", selectcolor="#1e2233", font="Arial 10").pack()
+Checkbutton(agree_frame, text="I agree to the Terms of Use", variable=agree_var, bg="#1e2233", fg="white",
+            selectcolor="#1e2233", font="Arial 10").pack()
 
 bottom_frame = Frame(root, bg="#e6a817", height=50)
 bottom_frame.pack(fill=X, side=BOTTOM)
 bottom_frame.pack_propagate(False)
 
-Button(bottom_frame, text="submit", bg="#4cae4c", fg="white", font="Arial 10 bold", bd=0, padx=10).pack(side=RIGHT, padx=(0, 5), pady=10)
-Button(bottom_frame, text="Cancel", bg="#d9534f", fg="white", font="Arial 10 bold", bd=0, padx=10).pack(side=RIGHT, padx=5, pady=10)
+Button(bottom_frame, text="submit", bg="#4cae4c", fg="white", font="Arial 10 bold",
+       bd=0, padx=10).pack(side=RIGHT, padx=(0, 5), pady=10)
+Button(bottom_frame, text="Cancel", bg="#d9534f", fg="white", font="Arial 10 bold",
+       bd=0, padx=10).pack(side=RIGHT, padx=5, pady=10)
 
 root.mainloop()
 cancel_btn = Button(bottom_frame, text="Cancel", bg="#e74c3c", fg="white",
