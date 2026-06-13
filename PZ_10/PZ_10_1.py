@@ -24,7 +24,7 @@ nums = list(map(int, content.split()))
 
 min_val = min(nums)
 last_min_index = 0
-for i in range(len(nums) - 1, -1, -1):
+for i in range(len(nums)):
     if nums[i] == min_val:
         last_min_index = i
         break
