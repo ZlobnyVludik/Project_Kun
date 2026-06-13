@@ -5,26 +5,26 @@
 
 count_letters = 0
 
-file1 = open("text18-8.txt", "r", encoding="utf-16")
+f1 = open("text18-8.txt", "r", encoding="utf-16")
 
-for line in file1:
-    print(line, end="")
+for line in f1:
+    print(line)
     for symbol in line:
         if symbol.isalpha():
             count_letters += 1
 
-file1.close()
+f1.close()
 
 print("\nКоличество букв:", count_letters)
 
 # Создание нового файла без буквы "с"
 
-file1 = open("text18-8.txt", "r", encoding="utf-16")
-text = file1.read()
-file1.close()
+f1 = open("text18-8.txt", "r", encoding="utf-16")
+text = f1.read()
+f1.close()
 
 text = text.replace("с", "").replace("С", "")
 
-file2 = open("text18-8_new.txt", "w", encoding="utf-16")
-file2.write(text)
-file2.close()
+f2 = open("text18-8_new.txt", "w", encoding="utf-16")
+f2.write(text)
+f2.close()
