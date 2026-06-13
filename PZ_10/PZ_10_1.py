@@ -29,9 +29,7 @@ for i in range(len(nums) - 1, -1, -1):
         last_min_index = i
         break
 
-half_start = len(nums) // 2
-second_half = nums[half_start:]
-sum_10 = sum(x for x in second_half if x > 10)
+sum_10 = sum(x for x in nums[len(nums) // 2:] if x > 10)
 
 f2 = open('result_8.txt', 'w', encoding="utf-16")
 f2.write("Исходные данные:\n")
