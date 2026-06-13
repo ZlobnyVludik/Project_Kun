@@ -9,7 +9,7 @@ class Human:
         self.gender = gender
 
     def show_info(self):
-        print(f"Имя: {self.name}, Возраст: {self.age}, Пол: {self.gender}")
+        print(f"Имя: {self.name}, Возраст: {self.age}, Пол: {self.gender}.")
 
 person = Human("Иван", 25, "мужской")
 person.show_info()
