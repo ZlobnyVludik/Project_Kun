@@ -20,3 +20,59 @@ with sq.connect("orders.db") as con:
     )
     """)
 
+    database = [
+        (1, "Товар1", "ООО Арбуз", "10-06-2026", 1, 900),
+        (2, "Товар2", "ОАО Шпинат", "11-06-2026", 4, 1200),
+        (3, "Товар3", "ООО Помидор", "12-06-2026", 8, 5600),
+        (4, "Товар4", "ОАО Шпинат", "12-06-2026", 8, 3333),
+        (5, "Товар5", "ООО Арбуз", "13-06-2026", 10, 9990),
+        (6, "Товар6", "ООО Жук", "14-06-2026", 6, 5200),
+        (7, "Товар7", "ООО Жук", "15-06-2026", 5, 1677),
+        (8, "Товар8", "ОАО Фаренгейт", "16-06-2026", 6, 1313),
+        (9, "Товар9", "ОАО Шпинат", "16-06-2026", 7, 44444),
+        (10, "Товар10", "ООО Мартышка", "16-06-2026", 2, 900)
+    ]
+
+    cur.execute("DELETE FROM orders")
+    cur.executemany("INSERT INTO orders VALUES (?, ?, ?, ?, ?, ?)", database)
+
+    print("База данных:")
+    cur.execute("SELECT * FROM orders")
+    for result in cur:
+        print(result)
+
+    # На поиск
+    print("\nПоиск 1")
+    cur.execute("SELECT * FROM orders WHERE customer = 'ОАО Шпинат'")
+    for result in cur:
+        print(result)
+
+    print("\nПоиск 2")
+    cur.execute("SELECT * FROM orders WHERE price BETWEEN 2000 AND 8000")
+    for result in cur:
+        print(result)
+
+    print("\nПоиск 3")
+    cur.execute("SELECT * FROM orders WHERE deadline <= 5")
+    for result in cur:
+        print(result)
+
+    # На редактирование
+    cur.execute("UPDATE orders SET price = 1000 WHERE itm_id = 1")
+    cur.execute("UPDATE orders SET deadline = 5 WHERE customer = 'ОАО Шпинат' AND price = 44444")
+    cur.execute("UPDATE orders SET price = 1500, deadline = 7 WHERE customer LIKE '%Ф%'")
+
+    print("\nПосле редактирования:")
+    cur.execute("SELECT * FROM orders")
+    for result in cur:
+        print(result)
+
+    # На удаление
+    cur.execute("DELETE FROM orders WHERE itm_id = 10")
+    cur.execute("DELETE FROM orders WHERE customer = 'ОАО Шпинат'")
+    cur.execute("DELETE FROM orders WHERE deadline <= 2")
+
+    print("\nПосле удаления:")
+    cur.execute("SELECT * FROM orders")
+    for result in cur:
+        print(result)
