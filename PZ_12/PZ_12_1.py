@@ -1,15 +1,22 @@
 # В матрице элементы столбца N (N задать с клавиатуры) увеличить в 2 раза.
 
-rows = int(input("Введите кол-во строк: "))
+import random
 
-matrix = [list(map(int, input("Введите строку: ").split())) for _ in range(rows)]
+rows = int(input("Количество строк: "))
+cols = int(input("Количество столбцов: "))
 
-N = int(input("Введите номер стобца: ")) - 1
+matrix = [[random.randint(1, 20) for j in range(cols)] for i in range(rows)]
 
+print("Исходная матрица:")
 for row in matrix:
-    if N < len(row):
-        row[N] *= 2
+    print(row)
 
-print("Результат: \n")
+n = int(input("Введите номер столбца: "))
+
+for i in range(rows):
+    matrix[i][n - 1] *= 2
+
+print("Измененная матрица:")
 for row in matrix:
-    print(*row)
+    print(row)
+    
