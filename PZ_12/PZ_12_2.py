@@ -1,11 +1,18 @@
 # В матрице элементы последней строки заменить на 0.
 
-rows = int(input("Введите кол-во строк: "))
+import random
 
-matrix = [list(map(int, input("Введите строку: ").split())) for _ in range(rows)]
-    
+rows = int(input("Количество строк: "))
+columns = int(input("Количество столбцов: "))
+
+matrix = [[random.randint(1, 20) for a in range(columns)] for i in range(rows)]
+
+print("Исходная матрица: ")
+for row in matrix:
+    print(*row)
+
 matrix[-1] = [0 for _ in matrix[-1]]
 
-print("Результат: \n")
+print("\nИзмененная матрица: ")
 for row in matrix:
     print(*row)
