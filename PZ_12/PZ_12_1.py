@@ -5,7 +5,7 @@ import random
 rows = int(input("Количество строк: "))
 columns = int(input("Количество столбцов: "))
 
-matrix = [[random.randint(1, 20) for j in range(columns)] for i in range(rows)]
+matrix = [[random.randint(1, 20) for a in range(columns)] for i in range(rows)]
 
 print("Исходная матрица: ")
 for column in matrix:
